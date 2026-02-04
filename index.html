@@ -49,6 +49,38 @@
     box-shadow: 0 0 25px rgba(0,0,0,0.4);
 min-height: 100vh;
 }
+.poster-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.poster-card {
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.25s;
+    border: 1px solid #ddd;
+}
+
+.poster-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(0, 150, 255, 0.6);
+}
+
+.poster-card img {
+    width: 100%;
+    display: block;
+}
+
+.poster-title {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0077cc;
+    text-align: center;
+}
 
     /* Сетка карточек */
     .grid {
@@ -90,6 +122,14 @@ min-height: 100vh;
 <div class="center-block">
     <!-- Здесь будет твой контент -->
     <h2 style="color:#000;">Каталог мультфильмов</h2>
+    <div class="poster-grid">
+
+    <!-- Постер 1 -->
+    <div class="poster-card" onclick="window.location.href='https://www.youtube.com/watch?v=1b26BD5KjH0'">
+        <img src="https://upload.wikimedia.org/wikipedia/en/5/5a/Popeye_meets_sinbad_the_sailor_poster.jpg" alt="Popeye HD Poster">
+        <div class="poster-title">Моряк Попай и Синдбад‑мореход</div>
+    </div>
+        </div>
 </div>
 
 <!-- ПУСТОЙ КАТАЛОГ -->
