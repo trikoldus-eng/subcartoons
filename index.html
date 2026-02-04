@@ -12,7 +12,7 @@
         color: #fff;
     }
 
-    /* Верхнее меню */
+    /* Верхняя панель */
     header {
         background: #111;
         padding: 15px 30px;
@@ -22,21 +22,22 @@
         border-bottom: 1px solid #222;
     }
 
-    header .logo {
+    .logo {
         font-size: 22px;
         font-weight: 500;
         color: #00aaff;
     }
 
-    nav a {
-        margin: 0 15px;
-        color: #ccc;
-        text-decoration: none;
-        font-size: 16px;
-    }
-
-    nav a:hover {
-        color: #00aaff;
+    /* Поисковая строка */
+    .search-box {
+        width: 300px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        background: #1a1a1a;
+        color: #fff;
+        font-size: 15px;
     }
 
     /* Сетка карточек */
@@ -74,31 +75,40 @@
 
 <header>
     <div class="logo">SubCartoons</div>
-    <nav>
-        <a href="#">Фильмы</a>
-        <a href="#">Мультфильмы</a>
-        <a href="#">Аниме</a>
-        <a href="#">Подборки</a>
-    </nav>
+    <input type="text" class="search-box" id="search" placeholder="Поиск мультфильма...">
 </header>
 
-<div class="grid">
-    <div class="card">
+<div class="grid" id="grid">
+
+    <div class="card" data-title="Popeye the Sailor">
         <img src="https://via.placeholder.com/300x450" alt="">
-        <div class="card-title">Название мультфильма</div>
+        <div class="card-title">Popeye the Sailor</div>
     </div>
 
-    <div class="card">
+    <div class="card" data-title="Superman 1941">
         <img src="https://via.placeholder.com/300x450" alt="">
-        <div class="card-title">Название мультфильма</div>
+        <div class="card-title">Superman (1941)</div>
     </div>
 
-    <div class="card">
+    <div class="card" data-title="Betty Boop">
         <img src="https://via.placeholder.com/300x450" alt="">
-        <div class="card-title">Название мультфильма</div>
+        <div class="card-title">Betty Boop</div>
     </div>
+
 </div>
+
+<script>
+    const search = document.getElementById('search');
+    const cards = document.querySelectorAll('.card');
+
+    search.addEventListener('input', () => {
+        const value = search.value.toLowerCase();
+        cards.forEach(card => {
+            const title = card.dataset.title.toLowerCase();
+            card.style.display = title.includes(value) ? 'block' : 'none';
+        });
+    });
+</script>
 
 </body>
 </html>
-
